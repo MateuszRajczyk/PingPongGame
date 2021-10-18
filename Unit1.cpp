@@ -54,6 +54,11 @@ void __fastcall TForm1::Timer_pilkaTimer(TObject *Sender)
        }
        else if(b->Top < p1->Top+p1->Height && b->Top+b->Height > p1->Top && b->Left < p1->Left+p1->Width)
        {
+                if(b->Top < p1->Top+(p1->Height/2)+25 && b->Top > p1->Top+(p1->Height/2)-25)
+                {
+                        x*=1.5;
+                        y*=1.5;
+                }
                 if(x<0) x=-x;
                 ilosc_odbic++;
 
@@ -80,6 +85,12 @@ void __fastcall TForm1::Timer_pilkaTimer(TObject *Sender)
        }
        else if(b->Top < p2->Top+p2->Height && b->Top+b->Height > p2->Top && b->Left+b->Width > p2->Left)
        {
+
+                if(b->Top < p2->Top+(p2->Height/2)+25 && b->Top > p2->Top+(p2->Height/2)-25)
+                {
+                        x*=1.5;
+                        y*=1.5;
+                }
                 if(x>0) x=-x;
                 ilosc_odbic++;
        }
@@ -131,12 +142,6 @@ void __fastcall TForm1::dol2Timer(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
-
-
-
-
-
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
         Application->MessageBox(
@@ -151,12 +156,9 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
                         "Mo¿esz dowolnie zmieniaæ pole gry.\n"
                         "\n"
                         "Mi³ej zabawy!", "Ping Pong",
-                        MB_OK | MB_ICONASTERISK | MB_DEFBUTTON2);
+                        MB_OK);
 }
 //---------------------------------------------------------------------------
-
-
-
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
@@ -167,14 +169,6 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         y = -6;
 }
 //---------------------------------------------------------------------------
-
-
-
-
-
-
-
-
 
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
@@ -203,12 +197,12 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
                 b->Left = 460;
                 b->Top = 210;
                 Timer_pilka->Enabled = true;
+                x = -6;
+                y = -6;
         }
         
 }
 //---------------------------------------------------------------------------
-
-
 
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
@@ -226,6 +220,9 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
         b->Top = 210;
         Timer_pilka->Enabled = true;
         Button3->Visible = false;
+        x = -6;
+        y = -6;
 }
 //---------------------------------------------------------------------------
+
 
